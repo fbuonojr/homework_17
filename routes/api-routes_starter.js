@@ -24,8 +24,7 @@ router.put('/api/workouts/:id', (req, res) => {
   // Look into mongoose doc for method to perform both find document by id and update the document
   // Look into a way to push data passed in to the exercises array in model
   // Fill in the input argument(s) to the method
-
-  db.Workout.findOneAndUpdate(req.params.id, {$push: req.body},
+  db.Workout.findByIdAndUpdate(req.params.id, {$push: {exercises : req.body}},
     
     // "runValidators" will ensure new exercises meet our schema requirements
     // Don't forget comma proceeds the following option
