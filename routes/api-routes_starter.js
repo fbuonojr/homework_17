@@ -6,13 +6,17 @@ const db = require('../models');
 router.post('/api/workouts', (req, res) => {
   // Replace <METHOD> with method to create document in collection with data in req body
   // Pass in data passed in from browser as input argument to the method
-  db.Workout.<METHOD>()
+  db.Workout.create(req.body)
 
     // Fill in .then() with call back function that takes result from db as input argument and send it back to browser
-    .then()
+    .then(dbTransaction => {
+      res.json(dbTransaction);
+    })
 
     // Fill in .catch() with call back function that takes error as input argument and send it back to browser
-    .catch();
+    .catch(err => {
+      res.status(400).json(err);
+    });
 });
 
 router.put('/api/workouts/:id', (req, res) => {
@@ -21,7 +25,7 @@ router.put('/api/workouts/:id', (req, res) => {
   // Look into a way to push data passed in to the exercises array in model
   // Fill in the input argument(s) to the method
 
-  db.Workout.<METHOD>(
+  db.Workout.findOneAndUpdate(req.params.id, {$push: req.body},
     
     // "runValidators" will ensure new exercises meet our schema requirements
     // Don't forget comma proceeds the following option
@@ -29,21 +33,29 @@ router.put('/api/workouts/:id', (req, res) => {
   )
 
     // Fill in .then() with call back function that takes result from db as input argument and send it back to browser
-    .then()
+    .then(dbTransaction => {
+      res.json(dbTransaction);
+    })
 
     // Fill in .catch() with call back function that takes error as input argument and send it back to browser
-    .catch();
+    .catch(err => {
+      res.status(400).json(err);
+    });
 });
 
 router.get('/api/workouts', (req, res) => {
   // Replace <METHOD> with method to Find all workouts from collection
-  db.Workout.<METHOD>()
+  db.Workout.find({})
 
     // Fill in .then() with call back function that takes result from db as input argument and send it back to browser
-    .then()
+    .then(dbTransaction => {
+      res.json(dbTransaction);
+    })
 
     // Fill in .catch() with call back function that takes error as input argument and send it back to browser
-    .catch();
+    .catch(err => {
+      res.status(400).json(err);
+    });
 });
 
 router.get('/api/workouts/range', (req, res) => {
@@ -51,7 +63,7 @@ router.get('/api/workouts/range', (req, res) => {
   // Look into mongoose doc for how to limit with range
   // Fill in the input argument(s) to the method
 
-  db.Workout.<METHOD>()
+  db.Workout.find({}).limit(5)
 
     // Fill in .then() with call back function that takes result from db as input argument and send it back to browser
     .then()
