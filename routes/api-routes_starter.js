@@ -81,14 +81,18 @@ router.delete('/api/workouts', ({ body }, res) => {
   // Look into mongoose doc for a method to perform both to find document with id and delete it
   // Review the front end javascript code to understand how document id is passed to back end
   // Fill in the input argument(s) to the method
-
-  db.Workout.<METHOD>()
+  console.log(body);
+  db.Workout.findByIdAndDelete(body._id)
 
     // Fill in .then() with call back function that takes no input argument and send boolean 'true' back to browser
-    .then()
+    .then(() => {
+      res.json(true);
+    })
 
     // Fill in .catch() with call back function that takes error as input argument and send it back to browser
-    .catch();
+    .catch(err => {
+      res.status(400).json(err);
+    });
 });
 
 module.exports = router;
