@@ -14,15 +14,24 @@ const workoutSchema = new Schema(
       {
         type: {
           // For the schema of this attribute, define type and trim and required
+          type: String,
+          trim: true,
+          required: true
         },
         name: {
           // For the schema of this attribute, define type and trim and required
+          type: String,
+          trim: true,
+          required: true
         },
         duration: {
           // For the schema of this attribute, define type as number and its required
+          type: Number,
+          required: true
         },
         weight: {
           // For the schema of this attribute, define type as number
+          type: Number
         },
         reps: {
           // For the schema of this attribute, define type as number
