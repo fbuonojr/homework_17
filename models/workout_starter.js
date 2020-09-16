@@ -35,12 +35,15 @@ const workoutSchema = new Schema(
         },
         reps: {
           // For the schema of this attribute, define type as number
+          type: Number
         },
         sets: {
           // For the schema of this attribute, define type as number
+          type: Number
         },
         distance: {
           // For the schema of this attribute, define type as number
+          type: Number
         },
       },
     ],
