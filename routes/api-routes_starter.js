@@ -66,10 +66,14 @@ router.get('/api/workouts/range', (req, res) => {
   db.Workout.find({}).limit(5)
 
     // Fill in .then() with call back function that takes result from db as input argument and send it back to browser
-    .then()
+    .then(dbTransaction => {
+      res.json(dbTransaction);
+    })
 
     // Fill in .catch() with call back function that takes error as input argument and send it back to browser
-    .catch();
+    .catch(err => {
+      res.status(400).json(err);
+    });
 });
 
 router.delete('/api/workouts', ({ body }, res) => {
