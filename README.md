@@ -1,4 +1,4 @@
-# Unit 17 Nosql Homework: Workout Tracker
+<!-- # Unit 17 Nosql Homework: Workout Tracker
 
 For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
 
@@ -48,4 +48,15 @@ You are required to submit the following:
 
 * The URL to the deployed application
 
-* The URL to the Github repository
+* The URL to the Github repository -->
+
+# Frank Buono- Homework 17: Fitness Tracker
+
+## Technologies Used: MongoDB, JavaScript, Express
+
+### Links:
+
+* link to github repo: https://github.com/fbuonojr/homework_17
+
+* link to deployed application: https://frank-fitnesstracker.herokuapp.com/
+
